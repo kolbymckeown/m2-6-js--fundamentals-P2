@@ -20,7 +20,7 @@ let inputData = {
   motherAge: 35,
   motherStatus: 'worried',
   motherSuperpower1: null,
-  motherSuperpower1: null,
+  motherSuperpower2: null,
   bestFriendName: 'Mike Wheeler',
   bestFriendAge: 9,
   bestFriendStatus: 'frenetic',
@@ -30,7 +30,7 @@ let inputData = {
   girlfriendAge: 9,
   girlfriendStatus: 'angry',
   girlfriendSuperpower1: 'telepathy',
-  girlfriendSuperpower1: 'multiverse portal sealing',
+  girlfriendSuperpower2: 'multiverse portal sealing',
 };
 
 /*
@@ -87,8 +87,58 @@ For example, the main superpowers array should be:
 ⛔️ ['can-blink-lights', null]
 */
 
+function getSuperpowers(power1, power2) {
+  let powersArray = [];
+
+  if (power1) {
+    powersArray.push(power1);
+  }
+  if (power2) {
+    powersArray.push(power2);
+  }
+  if (powersArray < 1) {
+    powersArray.push('No powers!')
+  }
+
+  return powersArray;
+}
+
 function transformData(data) {
   // Your code here
+  let outputData = {
+    name: data.name,
+    age: data.age,
+    status: data.status,
+    address: {
+      streetAddress: data.address1,
+      city: data.addressCity,
+      state: data.addressState,
+      country: data.addressCountry,
+    },
+  };
+
+  outputData.superpowers = getSuperpowers(data.superpower1, data.superpower2);
+  let mother = {
+    type: 'mother',
+    name: data.motherName,
+    age: data.motherAge,
+    status: data.motherStatus,
+    superpowers: getSuperpowers(data.motherSuperpower1, data.motherSuperpower2),
+  };
+  let girlfriend = {
+    type: 'girlfriend',
+    name: data.girlfriendName,
+    age: data.girlfriendAge,
+    status: data.girlfriendStatus,
+    superpowers: getSuperpowers(
+      data.girlfriendSuperpower1,
+      data.girlfriendSuperpower2
+    ),
+  };
+
+  outputData.relationships = [mother, girlfriend];
+
+  return outputData;
 }
 
 /*

@@ -46,7 +46,7 @@ console.log(`Average age is ${avgAge(people)}.`);
 
 // Solution 1: using `forEach`
 function fullName(peopleArr) {
-  const peopleNames = [];
+  const peopleNames = [];  
   peopleArr.forEach((person) => {
     const fullName = Object.values(person.name).join(' ');
     peopleNames.push(fullName);

@@ -16,9 +16,28 @@
 //     monthOfBirth: 'July'
 // }
 
-// A) console.log() your object.
-// B) console.log() a few of the values in the object.
+const myObj = {
+  name: {
+    first: 'Kolby',
+    last: 'McKeown',
+  },
+  age: '24',
+  city: 'Montreal',
+  siblings: 2,
+  sport: 'rugby',
+  birthDate: {
+    month: 'July',
+    day: '31',
+    year: '1995',
+},
+};
 
+// A) console.log() your object.
+
+console.log(myObj);
+
+// B) console.log() a few of the values in the object.
+console.log(`${myObj.name.last}, ${myObj.name.first} is ${myObj.age} years old.`);
 //-------------------------------------------------
 
 // Exercise A
@@ -47,7 +66,15 @@
 // HINT: Most movies have multiple actors. What data-structure do we use to
 // represent a collection of similar things?
 
-let favoriteMovie = {};
+let favoriteMovie = {
+  Title: 'Saving Private Ryan',
+  Director: 'Steven Spielberg',
+  YearReleased: 1998,
+  Rating: '8.6/10',
+  Actors: [
+    'Tom Hanks', 'Tom Sizemore', 'Edward Burns', 'Matt Damon', 'Vin Diesel', 'Barry Pepper', 'Adam Goldberg'
+  ]
+};
 
 //-------------------------------------------------
 
@@ -62,7 +89,7 @@ const person = {
   hometown: 'somewhere',
 };
 
-person[age]; // => 26
+person.age; // => 26
 person.key; // => "Alyssa P. Hacker"
 
 //-------------------------------------------------
@@ -85,11 +112,10 @@ const alyssa = {
 };
 
 function fullName(person) {
-  // Your code here
+  return `${person.name.first} ${person.name.middle} ${person.name.last}`
 }
 
 console.log(fullName(alyssa)); // => "Alyssa P. Hacker"
-
 // Exercise E
 // ------------
 // What happens if you pass a person object to `fullName` that doesn't have a
@@ -110,6 +136,12 @@ const rick = {
 
 function betterFullName(person) {
   // Your code here
+  if (rick.name > 2) {
+  return `${person.name.first} ${person.name.middle} ${person.name.last}`
+  } else {
+  return `${person.name.first} ${person.name.last}`  
+  }
 }
+// this code is assuming the user has a choice to simply enter a middle name or not
 
 console.log(betterFullName(rick)); // => "Rick Sanchez"

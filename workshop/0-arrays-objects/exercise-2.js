@@ -11,3 +11,10 @@ const earlyBirds = ['Ellen', 'Jerry', 'Jasmine'];
 // Output them in a tidy list from first to last arrival the console.
 
 // NO for loops!
+
+const mergedArrays = earlyBirds.concat(lateComers);
+// console.log(mergedArrays);
+
+mergedArrays.forEach((name, number) => {
+    console.log(`${number + 1}: ${name}`);
+});

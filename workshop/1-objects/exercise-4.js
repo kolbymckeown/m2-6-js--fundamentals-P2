@@ -12,6 +12,15 @@ let foodPairings = {
 // educated recommendations. What we need is an Array that only holds all the foods.
 
 // 6.1. Write a script that will print out all foods in the object.
+let foodArray = Object.keys(foodPairings)
+
+console.log(foodArray)
+
+
 
 // 6.2 Write a script that outputs each key/value pair to the console a sentence like this:
 // "With <FOOD_ITEM>, it is best to have <BEVERAGE>."
+
+foodArray.forEach((food) => {
+  console.log(`With ${food}, it is best to have ${foodPairings[food]}.`)
+});
